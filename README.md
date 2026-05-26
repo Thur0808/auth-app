@@ -1,71 +1,72 @@
-🚀 Gerenciador de Posts — Laravel & Blade
-Uma plataforma dinâmica e robusta para gerenciamento de conteúdos, desenvolvida com o ecossistema Laravel, Blade e Tailwind CSS. O foco principal deste projeto foi aplicar os padrões da arquitetura MVC para entregar um sistema fluido de CRUD (criação, leitura, atualização e exclusão), combinado com filtros de busca inteligentes e manipulação avançada de arquivos de mídia.
+# 🚀 Laravel Blade Posts Manager
 
-🛠️ Conjunto de Tecnologias
-Ambiente Backend: PHP 8.2+ utilizando o framework Laravel 11
+Um sistema de gerenciamento de publicações robusto e dinâmico construído com **Laravel**, **Blade** e **Tailwind CSS**. O projeto foi desenvolvido com foco em boas práticas de arquitetura MVC, oferecendo uma experiência de usuário fluida para criação, leitura, edição e exclusão de conteúdos (CRUD), além de um sistema inteligente de filtragem por categorias e tratamento avançado de mídia.
 
-Camada Frontend: Templates Blade integrados ao Tailwind CSS
+---
 
-Persistência de Dados: Compatibilidade com SQLite e MySQL
+## 🛠️ Tecnologias Utilizadas
 
-Segurança & UI: Fluxos de autenticação e componentes visuais do Laravel Breeze
+* **Backend:** Laravel 11 (PHP 8.2+)
+* **Frontend:** Blade Templates & Tailwind CSS
+* **Banco de Dados:** SQLite / MySQL
+* **Autenticação & UI:** Componentes nativos do ecossistema Laravel Breeze
 
-✨ Recursos Principais
-Controle Total de Conteúdo (CRUD): Publique, visualize, altere e remova postagens instantaneamente.
+---
 
-Busca Refinada por Categorias: Mecanismo de filtragem integrado diretamente na página principal (index), atualizando os resultados de forma ágil por meio de requisições GET.
+## ✨ Funcionalidades Principais
 
-Upload com Pré-visualização: Suporte para envio de mídias com sistema de preview dinâmico antes da publicação.
+* **CRUD Completo de Posts:** Criação, listagem, edição e exclusão de publicações em tempo real.
+* **Filtro por Categorias:** Mecanismo de busca refinada direto na listagem principal (`index`), atualizando os resultados dinamicamente via requisições `GET`.
+* **Upload Inteligente de Imagens:** Suporte a arquivos de mídia com sistema de *preview* dinâmico.
+* **Renderização de Mídia Inteligente:** Algoritmo CSS/Tailwind adaptado para exibir imagens horizontais ou verticais em proporção real (`object-contain`), eliminando cortes indesejados ou distorções no layout.
+* **Gerenciamento de Disco Rigoroso:** O controlador remove fisicamente imagens antigas do diretório `Storage` ao atualizar ou deletar um post, evitando o acúmulo de arquivos órfãos no servidor.
 
-Exibição Inteligente de Mídia: Layout adaptável via Tailwind (object-contain) que respeita as proporções originais (imagens verticais ou horizontais), eliminando cortes indesejados ou distorções.
+---
 
-Limpeza Automatizada do Storage: O controlador remove fisicamente os arquivos antigos do servidor sempre que um post é atualizado ou excluído, evitando o acúmulo de arquivos órfãos.
+## 🚀 Guia de Instalação e Execução (Ambiente Windows)
 
-🚀 Como Executar o Projeto (Ambiente Windows)
-Siga o roteiro de comandos abaixo para clonar a aplicação, configurar as dependências e colocá-la em funcionamento na sua máquina local.
+Siga a sequência de comandos abaixo no terminal do seu computador para clonar, configurar e colocar a aplicação para rodar imediatamente.
 
-📋 Requisitos Prévios
-Antes de iniciar, certifique-se de ter instalado em seu sistema:
+### 📋 Pré-requisitos
+Antes de começar, certifique-se de que tem instalado na sua máquina:
+* **Git** (Para clonar o projeto)
+* **PHP (>= 8.2)** e **Composer**
+* **Node.js & NPM**
 
-Git (Para gerenciar o código-fonte)
+### 💻 Passo a Passo Sequencial no Terminal
 
-PHP (>= 8.2) junto com o Composer
+Execute os comandos abaixo, um por um, dentro do seu terminal de preferência:
 
-Node.js e NPM
+```bash
+# 1. Clone o repositório para a sua máquina
+git clone [https://github.com/Thur0808/auth-app](https://github.com/Thur0808/auth-app)
 
-💻 Execução Passo a Passo no Terminal
-Digite os seguintes comandos em ordem no seu prompt de comando ou terminal de preferência:
-
-Bash
-# 1. Faça o download do repositório para a sua máquina
-git clone https://github.com/Thur0808/auth-app
-
-# 2. Acesse o diretório do projeto criado
+# 2. Acesse a pasta do projeto que foi criada
 cd auth-app
 
-# 3. Baixe os pacotes e dependências do PHP/Laravel
+# 3. Instale as dependências de pacotes do PHP/Laravel
 composer install
 
-# 4. Instale as dependências de front-end (Vite, Tailwind CSS, etc.)
+# 4. Instale as dependências do Frontend (Tailwind CSS, Vite, etc.)
 npm install
 
-# 5. Crie o arquivo de configuração local (.env) baseado no modelo
+# 5. Crie o arquivo de configuração do ambiente (.env)
 copy .env.example .env
 
-# 6. Gere a chave de segurança única da aplicação
+# 6. Gere a chave única de segurança do Laravel
 php artisan key:generate
 
-# 7. Estruture um arquivo de banco de dados SQLite limpo
+# 7. Crie o arquivo de banco de dados SQLite 100% vazio e compatível
 copy NUL database\database.sqlite
 
-# 8. Processe as migrações e alimente o banco com as categorias iniciais (Seeders)
+# 8. Rode as migrations e adicione as categorias padrão (Seeders)
 php artisan migrate --seed
 
-# 9. Vincule a pasta de armazenamento (Essencial para renderizar as imagens na tela)
+# 9. Crie o link do Storage (Passo obrigatório para que as imagens fiquem visíveis na tela)
 php artisan storage:link
 
-# 10. Inicie o compilador do Tailwind CSS (Deixe este terminal ativo)
+# 10. Inicialize o compilador do Tailwind CSS (Deixe este terminal aberto rodando)
 npm run dev
 
-# 11. Em outro terminal, inicialize o servidor local do Laravel
+# 11. Ligue o servidor local do PHP/Laravel
 php artisan serve
