@@ -1,6 +1,6 @@
 # 🚀 Laravel Blade Posts Manager
 
-Um sistema de gerenciamento de publicações robusto e dinâmico construído com **Laravel**, **Blade** e **Tailwind CSS**. O projeto foi desenvolvido com foco em boas práticas de arquitetura MVC, oferecendo uma experiência de usuário fluida para criação, leitura, edição e exclusão de conteúdos (CRUD), além de um sistema inteligente de filtragem por categorias e tratamento avançado de mídia.
+Um ecossistema de administração de postagens robusto e dinâmico arquitetado com Laravel, Blade e Tailwind CSS. O sistema foi concebido com foco estrito em boas práticas de design MVC, proporcionando uma experiência de uso fluida na criação, leitura, atualização e exclusão de artigos (CRUD), além de uma lógica inteligente para filtragem de categorias e gerenciamento avançado de arquivos de mídia.
 
 ---
 
@@ -16,7 +16,6 @@ Um sistema de gerenciamento de publicações robusto e dinâmico construído com
 ## ✨ Funcionalidades Principais
 
 * **CRUD Completo de Posts:** Criação, listagem, edição e exclusão de publicações em tempo real.
-* **Filtro por Categorias:** Mecanismo de busca refinada direto na listagem principal (`index`), atualizando os resultados dinamicamente via requisições `GET`.
 * **Upload Inteligente de Imagens:** Suporte a arquivos de mídia com sistema de *preview* dinâmico.
 * **Renderização de Mídia Inteligente:** Algoritmo CSS/Tailwind adaptado para exibir imagens horizontais ou verticais em proporção real (`object-contain`), eliminando cortes indesejados ou distorções no layout.
 * **Gerenciamento de Disco Rigoroso:** O controlador remove fisicamente imagens antigas do diretório `Storage` ao atualizar ou deletar um post, evitando o acúmulo de arquivos órfãos no servidor.
