@@ -1,59 +1,107 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# 📰 Sistema de Posts e Categorias
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Este é um sistema prático de gerenciamento de posts organizados por categorias. O projeto conta com autenticação completa de usuários, controle de categorias e criação/edição de posts com upload e tratamento dinâmico de imagens.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Funcionalidades da Aplicação
 
-## Learning Laravel
+* **Autenticação de Usuários:** Cadastro, login e controle de perfil seguro (via Laravel Breeze).
+* **Gestão de Categorias:** CRUD completo para organizar as publicações de forma lógica.
+* **Gestão de Posts:** CRUD completo contendo:
+    * Vínculo dinâmico com categorias.
+    * Upload inteligente de imagens no disco local.
+    * Preview de imagem em tempo real na criação e edição do post.
+    * Tratamento de exclusão: limpeza automática de arquivos antigos do servidor na edição ou exclusão do post para não acumular lixo no *storage*.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Tecnologias Utilizadas
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Linguagem:** PHP 8.2+
+* **Framework:** Laravel
+* **Estilização:** Tailwind CSS
+* **Banco de Dados:** MySQL / PostgreSQL / SQLite
 
-## Laravel Sponsors
+## 📦 Como Instalar e Rodar o Projeto Localmente
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Siga o passo a passo abaixo para executar o projeto na sua máquina:
 
-### Premium Partners
+### 1. Clonar o repositório
+```bash
+git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
+cd SEU-REPOSITORIO
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Instalar dependências (Back-end e Front-end)
+```bash
+composer install
+npm install
 
-## Contributing
+### 3. Configurar o ambiente (.env)
+```bash
+cp .env.example .env
+Abra o arquivo .env e configure a conexão com o seu banco de dados local (ex: DB_DATABASE=nome_do_seu_banco).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Gerar a chave da aplicação e rodar as Migrations
+```bash
+php artisan key:generate
+php artisan migrate
 
-## Code of Conduct
+### 5.Criar o link simbólico do Storage (Essencial para imagens)
+```bash
+php artisan key:generate
+php artisan migrate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 6. Iniciar os servidores Em um terminal, inicie o servidor do Laravel:
+```bash
+php artisan serve
+Em outro terminal, compile os assets do Tailwind:
 
-## Security Vulnerabilities
+npm run dev
+Acesse no navegador: http://127.0.0.1:8000
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Sobre o Laravel
+Laravel é um framework para aplicações web com sintaxe expressiva e elegante. Acreditamos que o desenvolvimento deve ser uma experiência prazerosa e criativa para ser verdadeiramente gratificante. O Laravel busca simplificar o desenvolvimento, facilitando tarefas comuns na maioria dos projetos web, como:
 
-## License
+Motor de roteamento simples e rápido.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Contêiner poderoso para injeção de dependências.
+
+Múltiplos back-ends parasessãoecachearmazenar.
+
+agnóstico em relação ao banco de dadosmigrações de esquema.
+
+Processamento robusto de tarefas em segundo plano.
+
+Transmissão de eventos em tempo real.
+
+O Laravel é acessível, poderoso e fornece as ferramentas necessárias para aplicações robustas e de grande porte.
+
+Aprendendo Laravel
+O Laravel possui a documentação mais extensa e completa.documentaçãoe uma biblioteca de tutoriais em vídeo de todos os frameworks modernos de aplicações web, facilitando o início com o framework. Você também pode conferirAprenda Laravel, onde você será guiado na construção de uma aplicação Laravel moderna.  
+
+Se você não estiver com vontade de ler,LaracastsPode ajudar. O Laracasts contém milhares de tutoriais em vídeo sobre diversos tópicos, incluindo Laravel, PHP moderno, testes unitários e JavaScript.  
+
+Patrocinadores do Laravel
+Gostaríamos de agradecer aos seguintes patrocinadores por financiarem o desenvolvimento do Laravel. Se você estiver interessado em se tornar um patrocinador, visite o site [inserir link aqui].Programa de Parceiros Laravel.  
+
+Contribuindo
+Obrigado por considerar contribuir para o framework Laravel! O guia de contribuição pode ser encontrado noDocumentação do Laravel.
+
+Código de Conduta
+Para garantir que a comunidade Laravel seja acolhedora para todos, revise e siga as diretrizes.Código de Conduta.
+
+Vulnerabilidades de segurança
+Caso encontre alguma vulnerabilidade de segurança no Laravel, envie um e-mail para Taylor Otwell através do endereço taylor@laravel.com. Todas as vulnerabilidades de segurança serão prontamente corrigidas.
+
+Licença
+  
+O framework Laravel é um software de código aberto licenciado sob a licença Creative Commons Attribution-NonCommercial ...Output-College.Licença MIT.
+
